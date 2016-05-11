@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Projet.Models.Albums>
+
+@foreach (var item in Model)
+{
+    <div>@item.Name</div>
+    <img src="~/Covers/@item.Cover" class="cover"/>
+}

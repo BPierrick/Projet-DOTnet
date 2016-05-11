@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdArtist" Type="Int32" Nullable="false" />
+    <Property Name="Style" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Artists" Relationship="Self.FK_Albums_ToArtists" FromRole="Albums" ToRole="Artists" />
+    <NavigationProperty Name="Tracks" Relationship="Self.FK_Tracks_ToAlbums" FromRole="Albums" ToRole="Tracks" />
+    <Property Name="Cover" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Artists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Albums" Relationship="Self.FK_Albums_ToArtists" FromRole="Artists" ToRole="Albums" />
+    <NavigationProperty Name="Tracks" Relationship="Self.FK_Tracks_ToArtists" FromRole="Artists" ToRole="Tracks" />
+  </EntityType>
+  <EntityType Name="Tracks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdArtist" Type="Int32" Nullable="false" />
+    <Property Name="IdAlbum" Type="Int32" Nullable="false" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Albums" Relationship="Self.FK_Tracks_ToAlbums" FromRole="Tracks" ToRole="Albums" />
+    <NavigationProperty Name="Artists" Relationship="Self.FK_Tracks_ToArtists" FromRole="Tracks" ToRole="Artists" />
+  </EntityType>
+  <Association Name="FK_Albums_ToArtists">
+    <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+    <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artists">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Albums">
+        <PropertyRef Name="IdArtist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tracks_ToAlbums">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+    <End Role="Tracks" Type="Self.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tracks">
+        <PropertyRef Name="IdAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tracks_ToArtists">
+    <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+    <End Role="Tracks" Type="Self.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artists">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tracks">
+        <PropertyRef Name="IdArtist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Albums" EntityType="Self.Albums" />
+    <EntitySet Name="Artists" EntityType="Self.Artists" />
+    <EntitySet Name="Tracks" EntityType="Self.Tracks" />
+    <AssociationSet Name="FK_Albums_ToArtists" Association="Self.FK_Albums_ToArtists">
+      <End Role="Artists" EntitySet="Artists" />
+      <End Role="Albums" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tracks_ToAlbums" Association="Self.FK_Tracks_ToAlbums">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Tracks" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tracks_ToArtists" Association="Self.FK_Tracks_ToArtists">
+      <End Role="Artists" EntitySet="Artists" />
+      <End Role="Tracks" EntitySet="Tracks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
