@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Projet.Models.Albums>
+
+
+@*@if (Model == null)
+{
+    <script type="text/javascript">
+
+    </script>
+}*@
+
+<body>
+    <h4>@ViewBag.NameArtist</h4>
+
+    @foreach (var item in Model)
+    {
+        <div data-AlbumId=@item.Id align="center" class="cover">
+            <a href="/Albums/Infos/@item.Id">
+                <img src="~/Covers/@item.Cover" />
+            </a>
+        </div>
+    }
+</body>
