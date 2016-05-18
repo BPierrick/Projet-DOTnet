@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Projet.Models.User>
+
+
+
+
+   @* 
+<form name="form1" method="post">
+    Nom d'utilisateur <input type="text" name="nom" size="20"/>
+    <br />
+    Mot de passe : <input type="text" name="mdp" size="20"/>
+    <br />
+    Email : <input type="text" name="email" size="20" />
+    <br />
+    <input type="button"
+           value="Send"
+           onclick="document.form1.action = '/Home/insertUser'; document.form1.submit();" />
+</form>
+ *@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+                <h4>Welcome back.</h4>
+                <input type="text" name="nom" class="form-control input-sm chat-input" placeholder="username" />
+                </br>
+                <input type="text" name="mdp" class="form-control input-sm chat-input" placeholder="password" />
+                </br>
+                <div class="wrapper">
+                    <span class="group-btn">
+                        <a href="/Home/Index" class="btn btn-primary btn-md" onclick="document.form1.action = '/Home/insertUser'; document.form1.submit();">login <i class="fa fa-sign-in"></i></a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+     
+
