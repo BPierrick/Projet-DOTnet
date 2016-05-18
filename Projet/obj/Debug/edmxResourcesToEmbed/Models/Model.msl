@@ -5,29 +5,42 @@
       <EntityTypeMapping TypeName="DatabaseModel.Albums">
         <MappingFragment StoreEntitySet="Albums">
           <ScalarProperty Name="Cover" ColumnName="Cover" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="IdArtist" ColumnName="IdArtist" />
           <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="IdArtist" ColumnName="IdArtist" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Artists">
       <EntityTypeMapping TypeName="DatabaseModel.Artists">
         <MappingFragment StoreEntitySet="Artists">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="DatabaseModel.Comments">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdTrack" ColumnName="IdTrack" />
+          <ScalarProperty Name="IdAlbum" ColumnName="IdAlbum" />
+          <ScalarProperty Name="IdArtist" ColumnName="IdArtist" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tracks">
       <EntityTypeMapping TypeName="DatabaseModel.Tracks">
         <MappingFragment StoreEntitySet="Tracks">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="IdArtist" ColumnName="IdArtist" />
-          <ScalarProperty Name="IdAlbum" ColumnName="IdAlbum" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
           <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="IdAlbum" ColumnName="IdAlbum" />
+          <ScalarProperty Name="IdArtist" ColumnName="IdArtist" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

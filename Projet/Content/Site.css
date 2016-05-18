@@ -16,3 +16,34 @@ textarea {
     max-width: 280px;
 }
 
+.cover {
+    width : 30%;
+    display : inline-block;
+    padding : 10px;
+}
+
+.cover img {
+    width : 100% !important;
+}
+
+.infos div{
+     padding:10px; 
+     width:30%;
+     text-align:center;
+     display:block;
+     /*margin-left: 35%;*/
+}
+
+#infos.cover {
+    display:inline-block;
+}
+
+.description {
+    display:inline-block !important;
+    text-align:left !important;
+}
+
+.infos img {
+    width:100%;
+}
+

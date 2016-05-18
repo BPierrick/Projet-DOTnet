@@ -47,3 +47,4 @@ C:\Users\Pierrick\Desktop\S4\Option-.NET\Projet\Projet\bin\System.Web.Helpers.xm
 C:\Users\Pierrick\Desktop\S4\Option-.NET\Projet\Projet\bin\System.Web.Mvc.xml
 C:\Users\Pierrick\Desktop\S4\Option-.NET\Projet\Projet\obj\Debug\Projet.dll
 C:\Users\Pierrick\Desktop\S4\Option-.NET\Projet\Projet\obj\Debug\Projet.pdb
+C:\Users\Pierrick\Desktop\S4\Option-.NET\Projet\Projet\obj\Debug\Projet.csprojResolveAssemblyReference.cache

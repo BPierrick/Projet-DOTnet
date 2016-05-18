@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<Projet.Models.Albums>
 
+
 @foreach (var item in Model)
 {
-    <div>@item.Name</div>
-    <img src="~/Covers/@item.Cover" class="cover"/>
+    <div data-AlbumId=@item.Id align="center" class="cover">
+        <a href="/Albums/Infos/@item.Id">
+            <img src="~/Covers/@item.Cover" />
+        </a>
+    </div>
 }

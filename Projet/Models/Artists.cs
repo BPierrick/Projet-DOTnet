@@ -12,5 +12,6 @@ namespace Projet.Models
 
         public List<Albums> Albums { get; set; }
         public List<Tracks> Tracks { get; set; }
+        public List<Comments> Comments { get; set; }
     }
 }
