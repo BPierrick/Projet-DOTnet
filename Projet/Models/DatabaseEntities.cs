@@ -14,6 +14,6 @@ namespace Projet.Models
         public DbSet<Albums> Albums { get; set; }
         public DbSet<Artists> Artists { get; set; }
         public DbSet<Tracks> Tracks { get; set; }
-        public DbSet<Comments> Comments { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

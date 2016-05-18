@@ -17,17 +17,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Comments">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdArtist" Type="int" Nullable="false" />
-    <Property Name="IdAlbum" Type="int" Nullable="false" />
-    <Property Name="IdTrack" Type="int" />
-    <Property Name="IdUser" Type="int" />
-    <Property Name="Value" Type="nvarchar(max)" />
-  </EntityType>
   <EntityType Name="Tracks">
     <Key>
       <PropertyRef Name="Id" />
@@ -37,7 +26,15 @@
     <Property Name="IdArtist" Type="int" Nullable="false" />
     <Property Name="IdAlbum" Type="int" Nullable="false" />
     <Property Name="Length" Type="int" Nullable="false" />
-    <Property Name="Path" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Albums_ToArtists">
     <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
@@ -78,8 +75,8 @@
   <EntityContainer Name="DatabaseModelStoreContainer">
     <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tracks" EntityType="Self.Tracks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Albums_ToArtists" Association="Self.FK_Albums_ToArtists">
       <End Role="Artists" EntitySet="Artists" />
       <End Role="Albums" EntitySet="Albums" />
