@@ -1,0 +1,73 @@
+﻿@model Projet.Models.vmTracksComments
+
+<body>
+    <section class="infos">
+        <div id="infos" class="cover">
+            <img src="~/Covers/@ViewBag.Cover" />
+        </div>
+        <div class="description">
+            <h3 class="albumName">@ViewBag.Name</h3>
+            <a href="/Artists/Index/@Model.Tracks.First().IdArtist.">
+                <h4 class="albumStyle">@ViewBag.Artist</h4>
+            </a>
+            <h4 class="albumStyle">@ViewBag.Style</h4>
+        </div>
+    </section>
+
+
+    <h4 align="center">
+        <a href="">Acheter cet album</a>
+    </h4>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tracks)
+            </th>
+            <th>
+                Sample
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Tracks)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <audio src="~/Tracks/@item.IdAlbum/@item.Path" controls></audio>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <section class="AlbumsComments">
+        <table>
+            <tr>
+                <td class="UserComment">
+                    @using (Ajax.BeginForm("Comment", "Albums", null))
+                    {
+                        @Html.EditorFor(c => c.Comments.First().Value, new { @class = "maClass", @id = "monid" })
+                        <input type="button" value="Envoyer"/>
+                    }
+                    @*<form name="AlbumComment" method="post">
+                        <input name="Comment" type="text" maxlength="100" />
+                        <input type="button"
+                               value="Envoyer"
+                               onclick="document.AlbumComment.action = '/Albums/Comment'; document.AlbumComment.submit();" />
+                    </form>*@
+                </td>
+            </tr>
+            @foreach (var item in Model.Comments)
+            {
+                <tr>
+                    <td>
+                        <p>@item.Value</p>
+                    </td>
+                </tr>
+            }
+        </table>
+    </section>
+</body>
